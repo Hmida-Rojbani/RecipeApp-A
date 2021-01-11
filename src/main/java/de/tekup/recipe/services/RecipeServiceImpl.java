@@ -29,6 +29,11 @@ public class RecipeServiceImpl implements RecipeService {
 		return reposRecipe.findById(id)
 						.orElseThrow(()-> new NoSuchElementException());
 	}
+	@Override
+	public void saveOrUpdate(Recipe recipe) {
+		reposRecipe.save(recipe);
+		
+	}
 
 	
 }
