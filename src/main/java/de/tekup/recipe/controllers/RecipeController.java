@@ -57,6 +57,11 @@ public class RecipeController {
 		
 	}
 	
-	
+	@GetMapping("/recipe/add")
+	public String newRecipe( Model model) {
+		
+		model.addAttribute("recipe", new RecipeRequest()); // HTML IN APP
+		return "recipe/recipeform";
+	}
 
 }
