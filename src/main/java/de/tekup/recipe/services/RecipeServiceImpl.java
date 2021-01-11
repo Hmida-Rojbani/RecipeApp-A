@@ -17,6 +17,11 @@ public class RecipeServiceImpl implements RecipeService {
 	public List<Recipe> getRecipes() {
 		return reposRecipe.findAll();
 	}
+	@Override
+	public void deleteRecipe(long id) {
+		reposRecipe.deleteById(id);
+		
+	}
 
 	
 }
