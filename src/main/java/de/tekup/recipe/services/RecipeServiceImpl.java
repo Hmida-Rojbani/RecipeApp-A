@@ -1,6 +1,7 @@
 package de.tekup.recipe.services;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,12 @@ public class RecipeServiceImpl implements RecipeService {
 	public void deleteRecipe(long id) {
 		reposRecipe.deleteById(id);
 		
+	}
+	@Override
+	public Recipe getRecipeById(long id) {
+		
+		return reposRecipe.findById(id)
+						.orElseThrow(()-> new NoSuchElementException());
 	}
 
 	

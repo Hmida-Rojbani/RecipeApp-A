@@ -2,6 +2,7 @@ package de.tekup.recipe.controllers;
 
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -21,5 +22,10 @@ public class RecipeController {
 		return "redirect:/";
 	}
 	
+	@GetMapping("/recipe/{id}/show")
+	public String showRecipe(@PathVariable("id") long recipeId, Model model) {
+		model.addAttribute("recipe", recipeService.getRecipeById(recipeId)); // HTML IN APP
+		return "recipe/show";
+	}
 
 }
